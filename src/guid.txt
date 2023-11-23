@@ -1,0 +1,119 @@
+https://www.w3schools.com/bootstrap5/bootstrap_utilities.php
+
+https://www.npmjs.com/package/react-icons
+https://react-icons.github.io/react-icons/icons?name=bi
+
+https://sweetalert2.github.io/
+
+https://react-bootstrap.netlify.app/docs/getting-started/rtl/
+
+https://getbootstrap.com/docs/4.0/utilities/flex/
+
+https://mui.com/material-ui/
+
+https://react-data-table-component.netlify.app/?path=/docs/getting-started-examples--page
+
+
+
+
+
+
+
+theme menual function
+
+.light{
+  background-color: #ccc;
+}
+.dark{
+  background-color: #000;
+}
+
+
+
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme') || 'light'
+  );
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+   //document.body.className = theme;
+  }, [theme]);
+
+
+ <div
+   
+
+      className={`dashboardMain ${theme}`}
+
+      style={{ direction: getLan == 'ar' ? 'rtl' : 'ltr' }}>
+      <DashHeader
+        sidebarCtrlFunc={sidebarCtrlFunc}
+        titleCtrl={titleCtrl} />
+      <DashSidebar
+        sidebarCtrl={sidebarCtrl}
+        titleCtrl={titleCtrl} />
+      <div className='dashContainer'>
+        <div className='dashContainerInner'>
+
+
+
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+            onClick={toggleTheme}
+            label="Day/Night"
+          />
+
+
+          <Outlet />
+        </div>
+      </div>
+      <DashFooter />
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @mixin dayMode{
+  $primaryBackground: #fff;
+  $secondaryBackground: #f8f8f8;
+  $thirdBackground: #75b9fd;
+
+  $primaryTextcolor: #000;
+  $secondaryTextColor: #767676;
+  $thirdTextcolor: #75b9fd;
+
+  $borderColor1: #cac9c9;
+  $borderColor2: #e7e3e3;
+}
+
+@mixin nightMode{
+  $primaryBackground: #141a1f;
+  $secondaryBackground: #1f262e;
+  $thirdBackground: #0059b2;
+
+  $primaryTextcolor: #fff;
+  $secondaryTextColor: #767676;
+  $thirdTextcolor: #75b9fd;
+
+  $borderColor1: #fff;
+  $borderColor2: #fff;
+}
